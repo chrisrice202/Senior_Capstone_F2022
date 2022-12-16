@@ -1,0 +1,40 @@
+while True:
+        inDisparity = q.get()  # blocking call, will wait until a new data has arrived
+        frame = inDisparity.getFrame()
+
+        totalSize = frame.size
+        quadrentSize = (int)(totalSize // 25)
+        widthStep = inDisparity.getWidth()
+        heightStep = inDisparity.getHeight()
+
+        for quadrent in range (0, 25):
+            sum = []
+            for item in range(quadrent * quadrentSize, (quadrent + 1) * quadrentSize):
+                print(frame)
+                print(frame[item])
+                if frame[item] != 0:
+                    sum.append(frame[item])
+            cv2.putText(frame, sum.average(), (widthStep * (quadrent % 5) + 10, heightStep * (quadrent // 5)  + 20), cv2.FONT_HERSHEY_TRIPLEX, 0.5, color)
+
+
+
+
+
+
+
+WORKING CVTEXT
+totalSize = frame.size
+        quadrentSize = (int)(totalSize // 25)
+        widthStep = inDisparity.getWidth() // 5
+        heightStep = inDisparity.getHeight() // 5
+
+        for quadrent in range (0, 25):
+            cv2.putText(frame, "Shalom :)", (widthStep * (quadrent % 5) + 10, heightStep * (quadrent // 5)  + 20), cv2.FONT_HERSHEY_TRIPLEX, 0.5, color)
+
+
+fakeArr = range(16)
+        fakeArr = np.reshape(fakeArr, (4, 4))
+        builtArr = np.empty((0,2), int)
+        for item in range(2):
+            builtArr = np.append(builtArr, fakeArr[[[item]], [range(2)]], axis = 0)
+        print(builtArr)
